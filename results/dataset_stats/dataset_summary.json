@@ -1,0 +1,17 @@
+{
+  "dataset_name": "Kvasir-SEG",
+  "source": "SimulaMet (https://datasets.simula.no/kvasir-seg/)",
+  "total_images": 1000,
+  "total_annotated_polyps": 1071,
+  "multi_polyp_images": 55,
+  "splits": {
+    "train": 800,
+    "val": 100,
+    "test": 100
+  },
+  "unique_resolutions_count": 333,
+  "class_mapping": {
+    "0": "polyp"
+  },
+  "seed": 42
+}
