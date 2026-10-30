@@ -78,5 +78,6 @@ colonoscopy-polyp-detection/
 ├── train_modal.py
 ├── Makefile
 ├── requirements.txt
+├── .env.example
 ├── .gitignore
-└── .env.example
+└── README.md
