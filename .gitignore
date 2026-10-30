@@ -1,0 +1,29 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+
+# Virtual environments & secrets
+.venv/
+venv/
+env/
+.env
+
+# Datasets & local YOLO runs (heavy files)
+data/
+runs/
+wandb/
+papers/
+
+# Model weights (pushed to Hugging Face Hub instead)
+*.pt
+*.pth
+*.onnx
+*.safetensors
+*.engine
+
+# OS metadata
+.DS_Store
+Thumbs.db
