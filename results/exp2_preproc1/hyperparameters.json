@@ -1,0 +1,46 @@
+[
+  {
+    "Hyperparameter / Setting": "Model Architecture",
+    "Value": "yolov8m.pt"
+  },
+  {
+    "Hyperparameter / Setting": "Input Image Size",
+    "Value": "640x640"
+  },
+  {
+    "Hyperparameter / Setting": "Batch Size",
+    "Value": "16"
+  },
+  {
+    "Hyperparameter / Setting": "Number of Epochs",
+    "Value": "80"
+  },
+  {
+    "Hyperparameter / Setting": "Learning Rate (lr0 / lrf)",
+    "Value": "0.001 (final: 0.01)"
+  },
+  {
+    "Hyperparameter / Setting": "Optimizer",
+    "Value": "AdamW"
+  },
+  {
+    "Hyperparameter / Setting": "Loss Function",
+    "Value": "CIoU (Box Regression) + DFL (Distribution Focal Loss) + BCE (Classification)"
+  },
+  {
+    "Hyperparameter / Setting": "Scheduler",
+    "Value": "Cosine Annealing"
+  },
+  {
+    "Hyperparameter / Setting": "Train/Val/Test Split",
+    "Value": "80% / 10% / 10% (800 / 100 / 100)"
+  },
+  {
+    "Hyperparameter / Setting": "Data Augmentation",
+    "Value": "Mosaic (1.0), Horizontal Flip (0.5), HSV-Hue (0.015), HSV-Sat (0.7), HSV-Val (0.4), Scale (0.5)"
+  },
+  {
+    "Hyperparameter / Setting": "Classical Preprocessing",
+    "Value": "3x3 Gaussian smoothing followed by Contrast Limited Adaptive Histogram Equalization (CLAHE) on the Luminance (L) channel in CIE LAB space."
+  }
+]
