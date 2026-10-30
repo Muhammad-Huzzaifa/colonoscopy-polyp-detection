@@ -1,0 +1,11 @@
+ultralytics
+opencv-python-headless
+numpy
+pandas
+matplotlib
+seaborn
+pyyaml
+huggingface-hub
+python-dotenv
+tqdm
+modal

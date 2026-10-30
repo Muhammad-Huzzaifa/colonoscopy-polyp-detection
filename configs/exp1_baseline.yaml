@@ -1,0 +1,30 @@
+experiment_id: "exp1_baseline"
+experiment_name: "Experiment 1: Baseline (Raw Kvasir-SEG + YOLOv8m)"
+
+preprocessing:
+  name: "none"
+  description: "No classical preprocessing applied (Original RGB colonoscopy frames)."
+  params: {}
+
+model:
+  type: "yolo"
+  architecture: "yolov8m.pt"
+  imgsz: 640
+
+training:
+  epochs: 80
+  batch_size: 16
+  optimizer: "AdamW"
+  lr0: 0.001
+  lrf: 0.01
+  weight_decay: 0.0005
+  cos_lr: true
+  patience: 20
+  seed: 42
+  workers: 4
+  augmentation_summary: "Mosaic (1.0), Horizontal Flip (0.5), HSV-Hue (0.015), HSV-Sat (0.7), HSV-Val (0.4), Scale (0.5)"
+  loss_summary: "CIoU (Box Regression) + DFL (Distribution Focal Loss) + BCE (Classification)"
+
+huggingface:
+  repo_id: "Muhammad-Huzzaifa/colonoscopy-polyp-detection"
+  push_weights: true
