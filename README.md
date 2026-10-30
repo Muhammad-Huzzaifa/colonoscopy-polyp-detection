@@ -81,3 +81,70 @@ colonoscopy-polyp-detection/
 ├── .env.example
 ├── .gitignore
 └── README.md
+```
+
+### Dataset Overview (Kvasir-SEG)
+
+The pipeline automatically downloads and formats the official Kvasir-SEG dataset from SimulaMet:
+
+* **Total Images:** 1,000 RGB colonoscopy frames ($332 \times 487$ to $1920 \times 1072$ native resolution, letterbox-resized to $640 \times 640$).
+* **Total Annotations:** 1,071 polyp bounding boxes across 945 single-polyp and 55 multi-polyp frames (`0: polyp`).
+* **Deterministic Split (`seed=42`):** 800 Train / 100 Validation / 100 Test images.
+
+### Quickstart & Usage
+
+#### 1. Installation
+
+```bash
+git clone https://github.com/Muhammad-Huzzaifa/colonoscopy-polyp-detection.git
+cd colonoscopy-polyp-detection
+python3 -m venv .venv && source .venv/bin/activate
+make install
+```
+
+Configure your Hugging Face write token (optional, required only if pushing new weights to the Hub):
+
+```bash
+cp .env.example .env
+# Edit .env and set HF_TOKEN=hf_your_token_here
+```
+
+#### 2. Prepare Dataset & Classical Preprocessed Views
+
+Downloads Kvasir-SEG, converts `kvasir_bboxes.json` into normalized YOLO labels, builds the 80/10/10 split, and generates cached image views for all preprocessing pipelines:
+
+```bash
+make data
+# Or run directly: python -m src.prepare_data --all
+```
+
+#### 3. Train & Evaluate (Local GPU/CPU or Modal Serverless GPU)
+
+##### Option A — Run on Modal Cloud GPU (Recommended):
+
+```bash
+make modal-exp1      # Experiment 1: Baseline (Raw)
+make modal-exp2      # Experiment 2: LAB-CLAHE + Gaussian
+make modal-exp3      # Experiment 3: Unsharp Masking + Laplacian
+```
+
+##### Option B — Run Locally:
+
+```bash
+make local-exp1
+make local-exp2
+make local-exp3
+```
+
+#### 4. Generate Cross-Experiment Benchmark Table & Charts
+
+```bash
+make compare
+# Outputs results/comparison/comparison_table.md and comparison_metrics_chart.png
+```
+
+### Citation & Credits
+
+* **Base Paper:** Lalinia, M., & Sahafi, A. (2024). Colorectal polyp detection in colonoscopy images using YOLO-V8 network. *Signal, Image and Video Processing*, 18(3), 2047–2058.
+* **Dataset:** Jha, D., Smedsrud, P. H., Riegler, M. A., Halvorsen, P., de Lange, T., Johansen, D., & Johansen, H. D. (2020). *Kvasir-SEG: A Segmented Polyp Dataset*. MultiMedia Modeling (MMM 2020).
+* **Contributors:** Muhammad Huzaifa (`23F-0043`) & Talha Zahid (`23F-0004`) — Department of Artificial Intelligence & Data Science, FAST-NUCES.
