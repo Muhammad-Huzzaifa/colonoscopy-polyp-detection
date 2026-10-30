@@ -1,0 +1,6 @@
+{
+  "experiment_id": "exp3_preproc2",
+  "repo_id": "Muhammad-Huzzaifa/colonoscopy-polyp-detection",
+  "hub_file": "exp3_preproc2/best.pt",
+  "download_url": "https://huggingface.co/Muhammad-Huzzaifa/colonoscopy-polyp-detection/blob/main/exp3_preproc2/best.pt"
+}
