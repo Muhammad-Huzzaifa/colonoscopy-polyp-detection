@@ -1,4 +1,3 @@
-# src/evaluate.py
 import argparse
 import json
 import shutil
